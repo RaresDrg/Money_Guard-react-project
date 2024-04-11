@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Money_Guard-react-project/static/css/main.7acaea2f.css",
+    "main.js": "/Money_Guard-react-project/static/js/main.e37d75e8.js",
+    "index.html": "/Money_Guard-react-project/index.html",
+    "main.7acaea2f.css.map": "/Money_Guard-react-project/static/css/main.7acaea2f.css.map",
+    "main.e37d75e8.js.map": "/Money_Guard-react-project/static/js/main.e37d75e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.e37d75e8.js"
+  ]
+}
