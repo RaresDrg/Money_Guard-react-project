@@ -1,0 +1,19 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .HomePage {
+    display: inline-flex;
+    justify-content: center;
+    align-self: flex-start;
+
+    margin-left: 64px;
+    margin-top: 0;
+  }
+}
