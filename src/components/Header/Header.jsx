@@ -4,12 +4,10 @@ import icons from '../../images/icons/sprite.svg';
 import { useState } from 'react';
 import LogOutModal from 'components/LogOutModal/LogOutModal';
 import { useAuth } from 'hooks';
+import { createPortal } from 'react-dom';
 
 const Header = () => {
   const [logOutModalIsOpen, setlogOutModalIsOpen] = useState(false);
-  const closeModal = () => {
-    setlogOutModalIsOpen(false);
-  };
 
   const { user } = useAuth();
 
@@ -33,7 +31,15 @@ const Header = () => {
         </div>
       </header>
 
-      {logOutModalIsOpen && <LogOutModal closeModal={closeModal} />}
+      {/* {logOutModalIsOpen && (
+        <LogOutModal closeModal={() => setlogOutModalIsOpen(false)} />
+      )} */}
+
+      {logOutModalIsOpen &&
+        createPortal(
+          <LogOutModal closeModal={() => setlogOutModalIsOpen(false)} />,
+          document.body
+        )}
     </>
   );
 };
