@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './EditTransactionForm.module.css';
 
 import FormButton from 'components/common/FormButton/FormButton';
@@ -11,11 +11,7 @@ import { useDispatch } from 'react-redux';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import {
-  transactionCategories,
-  getTransactionId,
-  getTransactionCategory,
-} from '../../constants/TransactionConstants';
+import { getTransactionCategory } from '../../constants/TransactionConstants';
 
 import { useSelector } from 'react-redux';
 import { selectTransactionForUpdate } from '../../redux/transactions/selectors';
