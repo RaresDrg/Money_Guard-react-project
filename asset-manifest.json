@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Money_Guard-react-project/static/css/main.2594599c.css",
+    "main.css": "/Money_Guard-react-project/static/css/main.436dc9e4.css",
     "main.js": "/Money_Guard-react-project/static/js/main.b720f515.js",
     "static/css/530.0e92cd57.chunk.css": "/Money_Guard-react-project/static/css/530.0e92cd57.chunk.css",
     "static/js/530.0a0deded.chunk.js": "/Money_Guard-react-project/static/js/530.0a0deded.chunk.js",
@@ -19,7 +19,7 @@
     "static/media/register&login-bg-m.jpg": "/Money_Guard-react-project/static/media/register&login-bg-m.ae27bdb45bfad9a86ab4.jpg",
     "static/media/sprite.svg": "/Money_Guard-react-project/static/media/sprite.bb99646235741c4180052beaeea3e2cd.svg",
     "index.html": "/Money_Guard-react-project/index.html",
-    "main.2594599c.css.map": "/Money_Guard-react-project/static/css/main.2594599c.css.map",
+    "main.436dc9e4.css.map": "/Money_Guard-react-project/static/css/main.436dc9e4.css.map",
     "main.b720f515.js.map": "/Money_Guard-react-project/static/js/main.b720f515.js.map",
     "530.0e92cd57.chunk.css.map": "/Money_Guard-react-project/static/css/530.0e92cd57.chunk.css.map",
     "530.0a0deded.chunk.js.map": "/Money_Guard-react-project/static/js/530.0a0deded.chunk.js.map",
@@ -32,7 +32,7 @@
     "772.24e6ad87.chunk.js.map": "/Money_Guard-react-project/static/js/772.24e6ad87.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2594599c.css",
+    "static/css/main.436dc9e4.css",
     "static/js/main.b720f515.js"
   ]
 }
