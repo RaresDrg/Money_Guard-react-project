@@ -7,9 +7,9 @@ import { useMediaQuery } from 'react-responsive';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import enUS from 'date-fns/locale/en-US'; // Importăm localizarea pentru engleză
+
 import {
   transactionCategories,
   getTransactionId,
@@ -20,11 +20,8 @@ import { getUserInfo } from '../../redux/auth/operations';
 
 import { FiCalendar } from 'react-icons/fi';
 
-// Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
-registerLocale('en-US', enUS);
-
 const AddTransactionFormNew = ({ closeModal }) => {
-  const [isOnIncomeTab, setIsOnIncomeTab] = useState(false); // Setăm inițial pe false pentru tab-ul "Expense"
+  const [isOnIncomeTab, setIsOnIncomeTab] = useState(false);
   useEffect(() => {}, [isOnIncomeTab]);
 
   const screenCondition = useMediaQuery({ query: '(min-width: 768px)' });
@@ -40,7 +37,7 @@ const AddTransactionFormNew = ({ closeModal }) => {
 
   const validationSchema = isOnIncomeTab
     ? Yup.object({
-        amount: Yup.string().required('Required*'),
+        amount: Yup.string().required('Required* '),
         comment: Yup.string().required('Required*'),
       })
     : Yup.object({
@@ -112,7 +109,9 @@ const AddTransactionFormNew = ({ closeModal }) => {
               {!isOnIncomeTab && (
                 <div className={`${styles.inputField} ${styles.category}`}>
                   <Field as="select" name="category" autoFocus required>
-                    <option value="">Select your category</option>
+                    <option value="" hidden>
+                      Select your category
+                    </option>
                     {transactionCategories.slice(0, -1).map(item => (
                       <option key={item.id}>{item.name}</option>
                     ))}
@@ -131,8 +130,7 @@ const AddTransactionFormNew = ({ closeModal }) => {
                   dateFormat="dd.MM.yyyy"
                   selected={startDate}
                   onChange={date => setStartDate(date)}
-                  locale="en-US" // Setăm localizarea la engleză
-                  calendarStartDay={1} // Setăm începutul săptămânii la luni
+                  calendarStartDay={1}
                 />
                 <FiCalendar className={styles.icon} />
               </div>

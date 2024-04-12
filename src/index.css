@@ -44,6 +44,10 @@ ol {
   padding: 0;
 }
 
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
 .container {
   min-width: 320px;
   margin: 0 auto;

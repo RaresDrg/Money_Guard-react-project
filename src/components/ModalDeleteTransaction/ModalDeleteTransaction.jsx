@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import FormButton from 'components/common/FormButton/FormButton';
 import Logo from 'components/common/Logo/Logo';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deteleTransaction } from '../../redux/transactions/operations';
 import { selectTrasactionIdForDelete } from '../../redux/transactions/selectors';
@@ -14,14 +14,8 @@ const ModalDeleteTransaction = ({ closeModal }) => {
 
   const trasactionIdForDelete = useSelector(selectTrasactionIdForDelete);
 
-  const modalRef = useRef();
-
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-
-    // setTimeout(() => {
-    //   modalRef.current.classList.add(styles.isOpen);
-    // }, 0);
 
     const addCloseEvent = event => {
       event.key === 'Escape' && closeModal();
@@ -53,31 +47,25 @@ const ModalDeleteTransaction = ({ closeModal }) => {
   ];
 
   return (
-    <div
-      className={styles.deleteModal}
-      onClick={closeOnClickOutside}
-      ref={modalRef}
-    >
-      <div className={styles.modalBg}>
-        <div className={styles.modalContent}>
-          {screenCondition && <Logo variant={'formLogo'} />}
+    <div className={styles.deleteModal} onClick={closeOnClickOutside}>
+      <div className={styles.modalContent}>
+        {screenCondition && <Logo variant={'formLogo'} />}
 
-          <p>Are you sure you want to detete this transaction?</p>
+        <p>Are you sure you want to detete this transaction?</p>
 
-          <div className={styles.buttonsWrapper}>
-            <FormButton
-              type={'button'}
-              text={'Delete'}
-              variant={'multiColorButtton'}
-              handlerFunction={handleDeleteClick}
-            />
-            <FormButton
-              type={'button'}
-              text={'cancel'}
-              variant={'whiteButtton'}
-              handlerFunction={() => closeModal()}
-            />
-          </div>
+        <div className={styles.buttonsWrapper}>
+          <FormButton
+            type={'button'}
+            text={'Delete'}
+            variant={'multiColorButtton'}
+            handlerFunction={handleDeleteClick}
+          />
+          <FormButton
+            type={'button'}
+            text={'cancel'}
+            variant={'whiteButtton'}
+            handlerFunction={() => closeModal()}
+          />
         </div>
       </div>
     </div>

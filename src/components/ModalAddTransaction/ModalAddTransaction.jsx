@@ -1,16 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import styles from './ModalAddTransaction.module.css';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 
 const ModalAddTransactionNew = ({ closeModal }) => {
-  const modalRef = useRef();
-
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-
-    // setTimeout(() => {
-    //   modalRef.current.classList.add(styles.isOpen);
-    // }, 0);
 
     const addCloseEvent = event => {
       event.key === 'Escape' && closeModal();
@@ -29,14 +23,8 @@ const ModalAddTransactionNew = ({ closeModal }) => {
 
   return (
     <>
-      <div
-        ref={modalRef}
-        className={styles.addModal}
-        onClick={closeOnClickOutside}
-      >
-        <div className={styles.modalBg}>
-          <AddTransactionForm closeModal={closeModal} />
-        </div>
+      <div className={styles.addModal} onClick={closeOnClickOutside}>
+        <AddTransactionForm closeModal={closeModal} />
       </div>
     </>
   );

@@ -18,10 +18,7 @@ const initialState = {
   summary: [],
 
   trasactionIdForDelete: '',
-  transactionForUpdate: {
-    id: '',
-    type: '',
-  },
+  transactionForUpdate: '',
 };
 
 const transactionsSlice = createSlice({

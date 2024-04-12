@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectAllTransactions } from '../../redux/transactions/selectors';
 import { fetchAllTransactions } from '../../redux/transactions/operations';
 
+import { createPortal } from 'react-dom';
 import ModalDeleteTransaction from 'components/ModalDeleteTransaction/ModalDeleteTransaction';
 import ModalAddTransactionNew from 'components/ModalAddTransaction/ModalAddTransaction';
 import ModalEditTransaction from 'components/ModalEditTransaction/ModalEditTransaction';
@@ -68,19 +69,29 @@ const HomePage = () => {
       </div>
 
       <>
-        {isAddModalOpen && (
-          <ModalAddTransactionNew closeModal={() => setIsAddModalOpen(false)} />
-        )}
+        {isAddModalOpen &&
+          createPortal(
+            <ModalAddTransactionNew
+              closeModal={() => setIsAddModalOpen(false)}
+            />,
+            document.body
+          )}
 
-        {isDeleteModalOpen && (
-          <ModalDeleteTransaction
-            closeModal={() => setIsDeleteModalOpen(false)}
-          />
-        )}
+        {isDeleteModalOpen &&
+          createPortal(
+            <ModalDeleteTransaction
+              closeModal={() => setIsDeleteModalOpen(false)}
+            />,
+            document.body
+          )}
 
-        {isEditModalOpen && (
-          <ModalEditTransaction closeModal={() => setisEditModalOpen(false)} />
-        )}
+        {isEditModalOpen &&
+          createPortal(
+            <ModalEditTransaction
+              closeModal={() => setisEditModalOpen(false)}
+            />,
+            document.body
+          )}
       </>
     </>
   );

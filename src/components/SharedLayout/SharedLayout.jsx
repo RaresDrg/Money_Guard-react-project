@@ -7,7 +7,7 @@ import Balance from 'components/Balance/Balance';
 
 import { useMediaQuery } from 'react-responsive';
 import Currency from 'components/Currency/Currency';
-import Footer from 'components/FooterNew/Footer';
+import Footer from 'components/Footer/Footer';
 import { Suspense } from 'react';
 
 const SharedLayout = () => {

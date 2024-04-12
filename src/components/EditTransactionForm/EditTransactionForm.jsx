@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styles from './ModifyTransactionForm.module.css';
+import { useRef, useState } from 'react';
+import styles from './EditTransactionForm.module.css';
 
 import FormButton from 'components/common/FormButton/FormButton';
 import icons from '../../images/icons/sprite.svg';
@@ -8,12 +8,13 @@ import { useMediaQuery } from 'react-responsive';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import enUS from 'date-fns/locale/en-US'; // Importăm localizarea pentru engleză
+
 import {
   transactionCategories,
   getTransactionId,
+  getTransactionCategory,
 } from '../../constants/TransactionConstants';
 
 import { useSelector } from 'react-redux';
@@ -22,46 +23,40 @@ import { modifyTransaction } from '../../redux/transactions/operations';
 import { getUserInfo } from '../../redux/auth/operations';
 import { FiCalendar } from 'react-icons/fi';
 
-// Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
-registerLocale('en-US', enUS);
-
-const ModifyTransactionFormNew = ({ closeModal }) => {
+const EditTransactionForm = ({ closeModal }) => {
   const transactionForUpdate = useSelector(selectTransactionForUpdate);
 
-  const isOnIncomeTab = transactionForUpdate.type === 'INCOME' ? true : false;
+  const { id, type, amount, comment, transactionDate, categoryId } =
+    transactionForUpdate;
+
+  const [startDate, setStartDate] = useState(new Date(transactionDate));
+
+  console.log(startDate);
+
+  const isOnIncomeTab = type === 'INCOME' ? true : false;
 
   const screenCondition = useMediaQuery({ query: '(min-width: 768px)' });
 
   const dispatch = useDispatch();
 
-  const [startDate, setStartDate] = useState(new Date());
-
   const initialValues = {
-    amount: '',
-    comment: '',
+    amount: type === 'INCOME' ? amount : amount * -1,
+    comment,
   };
 
-  const validationSchema = isOnIncomeTab
-    ? Yup.object({
-        amount: Yup.string().required('Required*'),
-        comment: Yup.string().required('Required*'),
-      })
-    : Yup.object({
-        amount: Yup.string().required('Required*'),
-        comment: Yup.string().required('Required*'),
-        category: Yup.string().required('Required*'),
-      });
+  const validationSchema = Yup.object({
+    amount: Yup.string().required('Required*'),
+    comment: Yup.string().required('Required*'),
+  });
 
   const handleSubmit = (values, { setSubmitting, setStatus }) => {
     setSubmitting(true);
-
+    debugger;
     dispatch(
       modifyTransaction({
-        transactionId: transactionForUpdate.id,
+        transactionId: id,
         transactionData: {
           transactionDate: startDate,
-          type: isOnIncomeTab ? 'INCOME' : 'EXPENSE',
-          categoryId: getTransactionId(values.category || 'Income'),
           comment: values.comment,
           amount: isOnIncomeTab ? values.amount : 0 - values.amount,
         },
@@ -109,13 +104,7 @@ const ModifyTransactionFormNew = ({ closeModal }) => {
             <div className={styles.inputWrapper}>
               {!isOnIncomeTab && (
                 <div className={`${styles.inputField} ${styles.category}`}>
-                  <Field as="select" name="category" autoFocus required>
-                    <option value="">Select your category</option>
-                    {transactionCategories.slice(0, -1).map(item => (
-                      <option key={item.id}>{item.name}</option>
-                    ))}
-                  </Field>
-                  <ErrorMessage name="category" component="p" />
+                  Category: <span>{getTransactionCategory(categoryId)}</span>
                 </div>
               )}
 
@@ -129,8 +118,7 @@ const ModifyTransactionFormNew = ({ closeModal }) => {
                   dateFormat="dd.MM.yyyy"
                   selected={startDate}
                   onChange={date => setStartDate(date)}
-                  locale="en-US" // Setăm localizarea la engleză
-                  calendarStartDay={1} // Setăm începutul săptămânii la luni
+                  calendarStartDay={1}
                 />
                 <FiCalendar className={styles.icon} />
               </div>
@@ -162,4 +150,4 @@ const ModifyTransactionFormNew = ({ closeModal }) => {
   );
 };
 
-export default ModifyTransactionFormNew;
+export default EditTransactionForm;

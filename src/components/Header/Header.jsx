@@ -31,10 +31,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* {logOutModalIsOpen && (
-        <LogOutModal closeModal={() => setlogOutModalIsOpen(false)} />
-      )} */}
-
       {logOutModalIsOpen &&
         createPortal(
           <LogOutModal closeModal={() => setlogOutModalIsOpen(false)} />,

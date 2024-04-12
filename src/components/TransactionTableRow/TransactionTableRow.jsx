@@ -26,9 +26,7 @@ const TransactionTableRow = ({
 
   const handleEditClick = () => {
     openEditModal();
-    dispatch(
-      setTrasactionForUpdate({ id: transaction.id, type: transaction.type })
-    );
+    dispatch(setTrasactionForUpdate({ ...transaction }));
   };
 
   let textClass = '';

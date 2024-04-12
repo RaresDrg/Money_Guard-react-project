@@ -22,17 +22,14 @@ const TransactionItem = ({ transaction, openDeleteModal, openEditModal }) => {
 
   const handleEditClick = () => {
     openEditModal();
-    dispatch(
-      setTrasactionForUpdate({ id: transaction.id, type: transaction.type })
-    );
+    dispatch(setTrasactionForUpdate({ ...transaction }));
   };
 
   let textClass = '';
   let borderClass = '';
 
-  // Determine class based on data
   if (type === 'INCOME') {
-    textClass = styles.incomeText; // Access class from CSS module
+    textClass = styles.incomeText;
     borderClass = styles.incomeBorder;
   } else if (type === 'EXPENSE') {
     textClass = styles.expenseText;
