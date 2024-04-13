@@ -4,8 +4,11 @@
   align-items: center;
   color: rgba(251, 251, 251, 1);
   position: relative;
-  width: 280px;
-  height: 280px;
+  /* width: 280px;
+  height: 280px; */
+
+  width: 100%;
+  height: auto;
 }
 
 .chartContainer .balance {

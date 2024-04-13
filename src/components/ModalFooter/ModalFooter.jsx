@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import styles from './ModalFooter.module.css';
 import { useMediaQuery } from 'react-responsive';
 import Logo from 'components/common/Logo/Logo';
@@ -40,8 +40,6 @@ const imageUrlLidiaMolodiuc = isRetina
   : LidiaMolodiucImage;
 
 const ModalFooter = ({ closeModal }) => {
-  const modalRef = useRef();
-
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -65,226 +63,213 @@ const ModalFooter = ({ closeModal }) => {
   const animation = 'animate__animated animate__fadeInDown  animate__slow';
 
   return (
-    <div
-      className={styles.modalFooter}
-      onClick={closeOnClickOutside}
-      ref={modalRef}
-    >
-      <div className={styles.modalBg}>
-        <div className={styles.modalContent}>
-          {screenCondition && <Logo variant={'formLogo'} />}
+    <div className={styles.modalFooter} onClick={closeOnClickOutside}>
+      <div className={styles.modalContent}>
+        {screenCondition && <Logo variant={'formLogo'} />}
 
-          <h2>Budget Busters are:</h2>
+        <h2>Budget Busters are:</h2>
 
-          <div className={styles.footerCards}>
-            {/* 1) Marius Birsan */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.marius}`}
-            >
-              <img
-                src={imageUrlMariusBirsan}
-                alt="Marius Birsan"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Marius Birsan</span>
-              <em className={styles.footerTeamFunction}>Team leader</em>
-              {/* Iconuri sociale */}
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://github.com/MariusBirsan"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Marius Birsan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/marius-birsan-6812315b/"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Marius Birsan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-
-            {/* 2) Dan Retegan */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.dan}	`}
-            >
-              <img
-                src={imageUrlDanRetegan}
-                alt="Dan Retegan"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Dan Retegan</span>
-
-              <em className={styles.footerTeamFunction}>Scrum Master</em>
-              {/* Iconuri sociale */}
-              <div>
-                <a
-                  href="https://github.com/danretegan"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Dan Retegan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/danretegan/"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Dan Retegan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-
-            {/* 3) Rares Dragan */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.rares}`}
-            >
-              <img
-                src={imageUrlRaresDragan}
-                alt="Rares Dragan"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Rares Dragan</span>
-              <em className={styles.footerTeamFunction}>Frontend developer</em>
-              {/* Iconuri sociale */}
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://github.com/RaresDrg"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Rares Dragan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/rares-dragan/"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Rares Dragan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-
-            {/* 4) Cristina Laes */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.cristina}`}
-            >
-              <img
-                src={imageUrlCristinaLaes}
-                alt="Cristina Laes"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Cristina Laes</span>
-
-              <em className={styles.footerTeamFunction}>Frontend developer</em>
-              {/* Iconuri sociale */}
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://github.com/Cris8791"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Cristina Laes"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/laes-cristina-a44b651b5/"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Cristina Laes"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-
-            {/* 5) Robert Uță */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.robert}`}
-            >
-              <img
-                src={imageUrlRobertUta}
-                alt="Robert Uță"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Robert Uță</span>
-
-              <em className={styles.footerTeamFunction}>Frontend developer</em>
-              {/* Iconuri sociale */}
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://github.com/RobertUta"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Robert Uță"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/uta-robert-constantin/"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Robert Uță"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-            </div>
-
-            {/* 6) Lidia Molodiuc */}
-            <div
-              className={`${styles.footerTeamCard} ${animation} ${styles.lidia}`}
-            >
-              <img
-                src={imageUrlLidiaMolodiuc}
-                alt="Lidia Molodiuc"
-                className={styles.teamMemberImage}
-              />
-              <span className={styles.footerTeamName}>Lidia Molodiuc</span>
-
-              <em className={styles.footerTeamFunction}>Frontend developer</em>
-              {/* Iconuri sociale */}
-              <div className={styles.socialLinks}>
-                <a
-                  href="https://github.com/demouserlidia88"
-                  className={styles.footerGithubIcon}
-                  aria-label="GitHub profile of Lidia Molodiuc"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="_"
-                  className={styles.footerLinkedinIcon}
-                  aria-label="LinkedIn profile of Lidia Molodiuc"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
+        <div className={styles.footerCards}>
+          {/* 1) Marius Birsan */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.marius}`}
+          >
+            <img
+              src={imageUrlMariusBirsan}
+              alt="Marius Birsan"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Marius Birsan</span>
+            <em className={styles.footerTeamFunction}>Team leader</em>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://github.com/MariusBirsan"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Marius Birsan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/marius-birsan-6812315b/"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Marius Birsan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
             </div>
           </div>
+
+          {/* 2) Dan Retegan */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.dan}	`}
+          >
+            <img
+              src={imageUrlDanRetegan}
+              alt="Dan Retegan"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Dan Retegan</span>
+            <em className={styles.footerTeamFunction}>Scrum Master</em>
+            <div>
+              <a
+                href="https://github.com/danretegan"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Dan Retegan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/danretegan/"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Dan Retegan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          {/* 3) Rares Dragan */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.rares}`}
+          >
+            <img
+              src={imageUrlRaresDragan}
+              alt="Rares Dragan"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Rares Dragan</span>
+            <em className={styles.footerTeamFunction}>Frontend developer</em>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://github.com/RaresDrg"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Rares Dragan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rares-dragan/"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Rares Dragan"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          {/* 4) Cristina Laes */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.cristina}`}
+          >
+            <img
+              src={imageUrlCristinaLaes}
+              alt="Cristina Laes"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Cristina Laes</span>
+            <em className={styles.footerTeamFunction}>Frontend developer</em>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://github.com/Cris8791"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Cristina Laes"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/laes-cristina-a44b651b5/"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Cristina Laes"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          {/* 5) Robert Uță */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.robert}`}
+          >
+            <img
+              src={imageUrlRobertUta}
+              alt="Robert Uță"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Robert Uță</span>
+            <em className={styles.footerTeamFunction}>Frontend developer</em>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://github.com/RobertUta"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Robert Uță"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/uta-robert-constantin/"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Robert Uță"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          {/* 6) Lidia Molodiuc */}
+          <div
+            className={`${styles.footerTeamCard} ${animation} ${styles.lidia}`}
+          >
+            <img
+              src={imageUrlLidiaMolodiuc}
+              alt="Lidia Molodiuc"
+              className={styles.teamMemberImage}
+            />
+            <span className={styles.footerTeamName}>Lidia Molodiuc</span>
+            <em className={styles.footerTeamFunction}>Frontend developer</em>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://github.com/demouserlidia88"
+                className={styles.footerGithubIcon}
+                aria-label="GitHub profile of Lidia Molodiuc"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="_"
+                className={styles.footerLinkedinIcon}
+                aria-label="LinkedIn profile of Lidia Molodiuc"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className={`${styles.thanksBtn} ${animation}`}>
           <FormButton
             type={'button'}
             text={'Thank You'}

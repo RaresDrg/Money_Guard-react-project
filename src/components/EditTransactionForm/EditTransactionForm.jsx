@@ -47,7 +47,6 @@ const EditTransactionForm = ({ closeModal }) => {
 
   const handleSubmit = (values, { setSubmitting, setStatus }) => {
     setSubmitting(true);
-    debugger;
     dispatch(
       modifyTransaction({
         transactionId: id,

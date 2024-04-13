@@ -29,15 +29,6 @@ const TransactionTableRow = ({
     dispatch(setTrasactionForUpdate({ ...transaction }));
   };
 
-  let textClass = '';
-
-  // Determine class based on data
-  if (type === 'INCOME') {
-    textClass = styles.incomeText; // Access class from CSS module
-  } else if (type === 'EXPENSE') {
-    textClass = styles.expenseText;
-  }
-
   return (
     <tr className={styles.dataRow}>
       <td className={styles.TransactionDateColumn}>
@@ -50,7 +41,9 @@ const TransactionTableRow = ({
         {getTransactionCategory(categoryId)}
       </td>
       <td className={styles.TransactionCommentColumn}>{comment}</td>
-      <td className={`${styles.TransactionAmountColumn} ${textClass}`}>
+      <td
+        className={type === 'INCOME' ? styles.incomeText : styles.expenseText}
+      >
         {type === 'INCOME' ? amount : amount * -1}
       </td>
       <td className={styles.TransactionEditColumn}>

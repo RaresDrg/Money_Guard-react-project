@@ -20,6 +20,10 @@ const StatisticsChart = () => {
     selectTransactionsSummary
   )?.periodTotal;
 
+  function formatNumber(balanceAmount) {
+    return balanceAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
   const filteredCategories = useSelector(selectFilteredCategories);
 
   const chartLabels =
@@ -77,14 +81,14 @@ const StatisticsChart = () => {
       ) : (
         <>
           <Doughnut data={chartData} options={chartOptions} />
-          <div
-            className={`${styles.balance} ${textAnimatioClasses}`}
-          >{`₴ ${balanceForSpecificPeriod?.toFixed(2)}`}</div>
+          <div className={`${styles.balance} ${textAnimatioClasses}`}>
+            ${'     '}
+            {balanceForSpecificPeriod
+              ? formatNumber(balanceForSpecificPeriod.toFixed(2))
+              : '0.00'}
+          </div>
         </>
       )}
-      {/* 
-      <Doughnut data={chartData} options={chartOptions} />
-      <div className={styles.balance}>{`₴ ${balanceForSpecificPeriod.toFixed(2)}`}</div> */}
     </div>
   );
 };

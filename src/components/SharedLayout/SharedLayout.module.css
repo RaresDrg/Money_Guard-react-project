@@ -2,11 +2,13 @@
   min-height: 100vh;
 
   padding-top: 75px;
-  padding-bottom: 15px;
+  padding-bottom: 50px;
   overflow: hidden;
 
   /* todo: problema aici cu valoarea bg */
   background: linear-gradient(219.62deg, #6d54eb 28.31%, #652392 66.76%);
+
+  position: relative;
 }
 
 .sharedSectionElements .navAndBalanceContainer {
@@ -18,7 +20,7 @@
   .section {
     padding-top: 0px;
     padding-bottom: 40px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 145px);
   }
 
   .sharedSectionElements {

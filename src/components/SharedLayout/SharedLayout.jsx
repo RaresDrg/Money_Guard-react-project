@@ -27,7 +27,7 @@ const SharedLayout = () => {
 
             {screenCondition && <Currency />}
           </div>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense>
             <Outlet />
           </Suspense>
         </div>

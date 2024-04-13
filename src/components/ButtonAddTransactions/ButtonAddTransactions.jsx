@@ -1,23 +1,18 @@
-import React from 'react';
 import styles from './ButtonAddTransactions.module.css';
+import icons from '../../images/icons/sprite.svg';
 
-const svgPlus = (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M10 0V20" stroke="white" strokeWidth="2" />
-    <path d="M0 10L20 10" stroke="white" strokeWidth="2" />
-  </svg>
-);
-
-export const ButtonAddTransactions = ({ onClick }) => {
+const ButtonAddTransactions = ({ openAddModall }) => {
   return (
-    <button className={styles.ButtonOpenModal} type="button" onClick={onClick}>
-      {svgPlus}
+    <button
+      className={styles.ButtonOpenModal}
+      type="button"
+      onClick={openAddModall}
+    >
+      <svg>
+        <use href={`${icons}#addBtn-icon`}></use>
+      </svg>
     </button>
   );
 };
+
+export default ButtonAddTransactions;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { ButtonAddTransactions } from 'components/ButtonAddTransactions/ButtonAddTransactions';
+import ButtonAddTransactions from 'components/ButtonAddTransactions/ButtonAddTransactions';
 
 import TransactionsList from 'components/TransactionsList/TransactionsList';
 import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
@@ -51,7 +51,14 @@ const HomePage = () => {
       <div className={`${styles.HomePage} ${animation}`}>
         {!screenCondition && <Balance />}
 
-        {screenCondition ? (
+        {data?.length === 0 && (
+          <p className={styles.noDataMessage}>
+            There are no saved transactions to be displayed. You can press the
+            plus button in the bottom left corner to add some
+          </p>
+        )}
+
+        {data?.length > 0 && screenCondition ? (
           <TransactionsTable
             data={data}
             openDeleteModal={() => setIsDeleteModalOpen(true)}
@@ -65,7 +72,7 @@ const HomePage = () => {
           />
         )}
 
-        <ButtonAddTransactions onClick={() => setIsAddModalOpen(true)} />
+        <ButtonAddTransactions openAddModall={() => setIsAddModalOpen(true)} />
       </div>
 
       <>

@@ -1,16 +1,19 @@
 .ButtonOpenModal {
   display: flex;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   justify-content: center;
   align-items: center;
-  border: none;
-  color: #fbfbfb;
-  cursor: pointer;
   height: 44px;
   width: 44px;
   border-radius: 50%;
+
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  border: none;
+  color: #fbfbfb;
+  cursor: pointer;
+
   background: linear-gradient(95deg, #ffc727 -15%, #9e40ba 95%, #7000ff 150%);
   transition: all 0.5s ease 0s;
 }
@@ -21,16 +24,14 @@
   transition: all 0.5s ease 0s;
 }
 
-@media only screen and (min-width: 768px) {
-  .ButtonOpenModal {
-    bottom: 50px;
-    margin-right: 12px;
-  }
+.ButtonOpenModal svg {
+  width: 20px;
+  height: 20px;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 768px) {
   .ButtonOpenModal {
-    bottom: 50px;
-    margin-right: 0;
+    bottom: 40px;
+    right: 40px;
   }
 }

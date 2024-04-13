@@ -79,5 +79,12 @@
         d="M16 30.583l-2.24-2.24c-8.32-7.36-13.76-12.32-13.76-18.4 0-4.96 3.84-8.8 8.8-8.8 2.72 0 5.44 1.28 7.2 3.36 1.76-2.080 4.48-3.36 7.2-3.36 4.96 0 8.8 3.84 8.8 8.8 0 6.080-5.44 11.040-13.76 18.4l-2.24 2.24z">
       </path>
     </symbol>
+
+    <symbol id="addBtn-icon" viewBox="0 0 32 32">
+      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt"
+        stroke-miterlimit="4" stroke-width="3.2" d="M16 0v32"></path>
+      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt"
+        stroke-miterlimit="4" stroke-width="3.2" d="M0 16h32"></path>
+    </symbol>
   </defs>
 </svg>

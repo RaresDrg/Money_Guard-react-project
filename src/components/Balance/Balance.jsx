@@ -8,6 +8,10 @@ import { getUserInfo } from '../../redux/auth/operations';
 function Balance() {
   const dispatch = useDispatch();
 
+  function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
   useEffect(() => {
     dispatch(getUserInfo());
   }, [dispatch]);
@@ -17,9 +21,7 @@ function Balance() {
   return (
     <div className={styles.balance}>
       <h3>Your balance</h3>
-      <p>
-        ₴ <span>{balance ? balance.toFixed(2) : '0.00'}</span>
-      </p>
+      <p>$ {balance ? formatNumber(balance.toFixed(2)) : '0.00'}</p>
     </div>
   );
 }
